@@ -12,6 +12,16 @@ class ClientWebStore:
             login: str = 'default_login',
             password: str = '1234qwerty'
     ):
+        """
+        Конструктор клиента интернет-магазина
+
+        :param user_name: Имя пользователя
+        :param age: Возраст
+        :param gender: Пол
+        :param login: Логин
+        :param password: Пароль
+        """
+
         if age < 18:
             raise ValueError(f'Пользователь должен быть старше 18, текущий возраст: {age}')
 
@@ -26,28 +36,49 @@ class ClientWebStore:
 
     @property
     def password(self) -> str:
+        """
+        Метод для получения пароля
+        :return: Текущий пароль
+        """
         return self.__password
 
     @password.setter
     def password(self, new_password: str) -> None:
+        """
+        Метод для изменения пароля на новый
+        :param new_password: Новый пароль
+        :return:
+        """
         self.__password = new_password
 
     @property
-    def id(self):
+    def id(self) -> int:
+        """
+        Метод для получения ID Пользователя
+        :return: ID Пользователя
+        """
         return self.__id
 
     @id.setter
     def id(self, new_id: int) -> None:
+        """
+        Метод для изменения/присвоения ID Пользователя
+        :param new_id: Новый ID Пользователя
+        :return:
+        """
         self.__id = new_id
 
     @staticmethod
     def print_object(client: object) -> None:
-        print(client)
+        """
+        Статический метод. Выводит информацию об экземпляре класса
 
-    def __str__(self) -> str:
-        return f'Значение поля id = {self.__id}, значение поля user_name = {self.user_name}, ' \
-               f'значение поля age = {self.age}, значение поля gender = {self.gender}, ' \
-               f'значение поля login = {self.login}, значение поля password = {self.__password}'
+        :param client: Экземпляр класса
+        :return:
+        """
+        for attr, value in client.__dict__.items():
+            print('Значение поля ' + attr + ' = ' + str(value))
+        print()
 
 
 if __name__ == '__main__':
