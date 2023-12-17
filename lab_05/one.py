@@ -102,6 +102,7 @@ def three():
     plt.legend(loc='upper right')
     fig.savefig('bars.png')
 
+
 def four():
     data_names = ['cafe', 'pharmacy', 'fuel', 'bank', 'w.d.', 'atm', 'bench', 'parking', 'restaurant', 'p.o.w.']
     data_values = [9124, 8652, 7592, 7515, 7041, 6487, 6374, 6277, 5092, 3629]
